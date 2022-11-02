@@ -1,5 +1,6 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StackNavigator } from "./app/components/StackNavigator";
+import { LanguagemProvider } from "./app/context/LanguageContext";
 import { ThemeContextProvider } from "./app/context/ThemeContext";
 
 const app = () => {
@@ -7,7 +8,9 @@ const app = () => {
   return (
     <SafeAreaProvider>
       <ThemeContextProvider>
-        <StackNavigator />
+        <LanguagemProvider>
+          <StackNavigator />
+        </LanguagemProvider>
       </ThemeContextProvider>
     </SafeAreaProvider>
   )

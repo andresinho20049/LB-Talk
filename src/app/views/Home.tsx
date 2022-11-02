@@ -1,23 +1,29 @@
 import { StyleSheet, Text, View } from "react-native";
+import { Surface } from "react-native-paper";
+import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
 
 export const Home = () => {
-    const { theme, themeType, isDarkTheme } = useTheme();
+    const { theme } = useTheme();
     const colors = theme.colors;
-    console.log(theme.colors, themeType, isDarkTheme)
-        
+
+    const { language, subtitle } = useLanguage();
+    
     return (
         <View style={style.container}>
             <View style={style.content1}>
-                <Text style={{color: colors.accent}}>
+                <Text style={{color: colors.text}}>
                     Home
                 </Text>
             </View>
-            <View style={style.content2}>
+            <Surface style={[style.content2, {backgroundColor: colors.card}]} elevation={4}>
                 <Text style={{color: colors.text}}>
-                    Content 2
+                    Fala: {language}
                 </Text>
-            </View>
+                <Text style={{color: colors.text}}>
+                    Legenda: {subtitle}
+                </Text>
+            </Surface>
         </View>
     )
 }
@@ -34,6 +40,9 @@ const style = StyleSheet.create({
         justifyContent:'center',
     }, content2: {
         flexGrow: 1,
+        width: '95%',
+        marginBottom: 7,
+        borderRadius: 15,
         alignItems: 'center',
         justifyContent:'center'
     }

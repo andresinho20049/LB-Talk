@@ -3,6 +3,8 @@ apply plugin: "com.android.application"
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
 
+// compile project(':react-native-audio-recorder-player')
+
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
  * and bundleReleaseJsAndAssets).
