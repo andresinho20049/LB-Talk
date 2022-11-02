@@ -8,7 +8,7 @@ export const lightTheme: Theme = {
     colors: {
         ...NavigationDefaultTheme.colors,
         ...PaperDefaultTheme.colors,
-        card: '#ddd',
+        card: '#aaa',
         accent: '#ccc'
     },
 };

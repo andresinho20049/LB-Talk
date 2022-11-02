@@ -1,5 +1,5 @@
 import { SegmentedButtons } from "react-native-paper";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 
 export const SegmentedLanguage = () => {

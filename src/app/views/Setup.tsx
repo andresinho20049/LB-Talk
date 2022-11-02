@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { List, ToggleButton } from "react-native-paper"
-import { SegmentedLanguage } from "../components/SegmentedLanguage";
-import { SegmentedSubtitle } from "../components/SegmentedSubtitle";
+import { SegmentedLanguage } from "../components/SetupLanguage/SegmentedLanguage";
+import { SegmentedSubtitle } from "../components/SetupLanguage/SegmentedSubtitle";
 import { useTheme } from "../context/ThemeContext";
 
 
