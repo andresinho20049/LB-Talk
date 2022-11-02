@@ -1,8 +1,9 @@
 import { useCallback, useState } from 'react';
 import { ActionsProps, FabGroup } from "./FabGroup";
 
-import { onStartPlayer, onStartRecord, onStopPlay, onStopRecord } from '../hooks/UseRecord';
 import { Snackbar } from 'react-native-paper';
+import { onStartPlayer, onStartRecord, onStopRecord } from '../hooks/UseRecord';
+import { useSpeechToText } from '../hooks/UseSpeechToText';
 
 interface State {
     isLoggingIn: boolean;
@@ -17,6 +18,7 @@ interface State {
 export const RecordActions = () => {
 
     const [recording, setRecording] = useState(false);
+    const { handleJob, handleTranscript } = useSpeechToText();
 
     const handleRecord = useCallback(() => {
         onStartRecord();
@@ -25,7 +27,21 @@ export const RecordActions = () => {
 
     const handleStopRecord = useCallback(() => {
         onStopRecord();
-        setRecording(false);
+        
+        if(recording)
+            setRecording(false);
+
+        handleJob()
+            .then((result) => {
+                if (result instanceof Error) {
+                    console.log(result);
+                    console.warn(result.message);
+                    return;
+                } else {
+                    handleTranscript(result);
+                }
+            });
+
     }, [recording]);
 
     const actions: ActionsProps[] = [

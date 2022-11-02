@@ -12,11 +12,11 @@ export const SegmentedSubtitle = () => {
          onValueChange={toggleSubtitle}
          buttons={[
            {
-             value: 'pt-BR',
+             value: 'pt',
              label: 'Português',
            },
            {
-             value: 'en-US',
+             value: 'en',
              label: 'Inglês',
            },
          ]}

@@ -12,11 +12,11 @@ export const SegmentedLanguage = () => {
          onValueChange={toggleLanguage}
          buttons={[
            {
-             value: 'pt-BR',
+             value: 'pt',
              label: 'Português',
            },
            {
-             value: 'en-US',
+             value: 'en',
              label: 'Inglês',
            },
          ]}
