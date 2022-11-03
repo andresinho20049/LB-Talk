@@ -10,8 +10,9 @@ const job = async (req: IReqJob): Promise<string | Error> => {
         form.append('config', JSON.stringify(req.config));
         form.append('data_file', req.data_file);
 
-        // Axios request form-data tem muitos conflitos com React Native
+        // Axios form-data tem muitos conflitos com React Native
         // [https://github.com/axios/axios/issues/1321]
+        // [https://github.com/axios/axios/issues/4998]
 
         // ApiForm.defaults.headers.post['Content-Type'] = 'multipart/form-data';
 

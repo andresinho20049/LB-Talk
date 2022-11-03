@@ -1,8 +1,7 @@
-import { RNFetchBlobReadStream } from "rn-fetch-blob"
 
 export interface IReqJob {
     config: IJobConfig,
-    data_file: Object
+    data_file: IDataFile
 }
 
 export interface IDataFile {

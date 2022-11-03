@@ -33,9 +33,7 @@ export const useSpeechToText = () => {
             name: "record.mp3",
         }
 
-        // const data = fs.
-
-        const result = await job({ config, data_file: fs.readStream(path || '', 'base64')});
+        const result = await job({ config, data_file});
 
         if (result instanceof Error) {
             return new Error(result.message);
