@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Divider, Surface } from "react-native-paper";
+import { VLibrasReactNative } from "../components/VLibrasReactNative";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
 
@@ -12,9 +13,8 @@ export const Home = () => {
     return (
         <View style={style.container}>
             <View style={style.content}>
-                <Text style={{ color: colors.text }}>
-                    Home
-                </Text>
+                {/* Mater comentado, pois apresenta instabilidade */}
+                {/* <VLibrasReactNative />  */}
             </View>
             <Surface style={[style.surface, { backgroundColor: colors.card }]} elevation={4}>
                 <View style={style.contentSurface}>
@@ -43,7 +43,7 @@ const style = StyleSheet.create({
         alignItems: 'center',
         flex: 1,
     }, content: {
-        flexGrow: 4,
+        flexGrow: 3,
         alignItems: 'center',
         justifyContent: 'center',
     }, surface: {
