@@ -34,7 +34,6 @@ export const RecordActions = () => {
         handleJob()
             .then((result) => {
                 if (result instanceof Error) {
-                    console.log(result);
                     console.warn(result.message);
                     return;
                 } else {

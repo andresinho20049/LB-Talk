@@ -2,7 +2,13 @@ import { RNFetchBlobReadStream } from "rn-fetch-blob"
 
 export interface IReqJob {
     config: IJobConfig,
-    data_file: RNFetchBlobReadStream
+    data_file: Object
+}
+
+export interface IDataFile {
+    uri: string,
+    type: 'audio/mpeg3' | 'text/plain' | 'application/octet-stream' | 'application/pdf' | 'audio/mpeg' | 'image/jpeg' | 'image/png' | 'audio/wav',
+    name: string,
 }
 
 export interface IJobConfig {

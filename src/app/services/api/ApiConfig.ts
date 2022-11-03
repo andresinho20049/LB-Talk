@@ -4,12 +4,14 @@ import { errorInterceptor, RequestInterceptor, responseInterceptor } from './int
 //@ts-ignore
 import { REACT_APP_BASE_URL, REACT_APP_AUTHORIZATION_TOKEN } from 'react-native-dotenv';
 
-const ApiForm = axios.create({
+export const configBase = {
     baseURL: REACT_APP_BASE_URL,
     headers: {
         'Authorization': `Bearer ${REACT_APP_AUTHORIZATION_TOKEN}`
     }
-});
+};
+
+const ApiForm = axios.create(configBase);
 
 ApiForm.interceptors.response.use(
     (res) => responseInterceptor(res),

@@ -10,10 +10,11 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@djpfs/react-vlibras": "^2.0.2",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/stack": "^6.3.2",
     "@types/rn-fetch-blob": "^1.2.3",
-    "axios": "^0.26.0",
+    "axios": "^0.27.2",
     "react": "18.1.0",
     "react-native": "0.70.3",
     "react-native-audio-recorder-player": "^3.5.1",

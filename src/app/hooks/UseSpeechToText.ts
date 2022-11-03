@@ -1,8 +1,8 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Platform } from 'react-native';
 import RNFetchBlob from 'rn-fetch-blob';
 import { useLanguage } from '../context/LanguageContext';
-import { IJobConfig } from '../interface/ISpeechToText';
+import { IDataFile, IJobConfig } from '../interface/ISpeechToText';
 import { job, translate } from '../services/api/speechmatics/SpeechToText';
 
 const fs = RNFetchBlob.fs;
@@ -15,7 +15,6 @@ export const useSpeechToText = () => {
 
     const { language, transcript, setTranscript } = useLanguage();
 
-
     const handleJob = useCallback(async (): Promise<string | Error> => {
 
         const config: IJobConfig = {
@@ -26,9 +25,17 @@ export const useSpeechToText = () => {
             }
         }
 
-        const data_file = await fs.readStream(path || '', 'base64');
+        // const data_file = await fs.readStream(path || '', 'base64');
 
-        const result = await job({ config, data_file });
+        const data_file:IDataFile = {
+            uri: path || '',
+            type: 'audio/mpeg3',
+            name: "record.mp3",
+        }
+
+        // const data = fs.
+
+        const result = await job({ config, data_file: fs.readStream(path || '', 'base64')});
 
         if (result instanceof Error) {
             return new Error(result.message);
